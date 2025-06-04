@@ -1,33 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PeriodController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
-Route::get('/products/{id}/{name}/{pk}', function ($id, $name, $pk) {
-    return "<a href='". route('products', [$id, $name, $pk]) ."'>move to product</a>";
-})->name('products for tag {a}');
-
-Route::get('/products/view/{id}/{name}/{pk}', function ($id, $name, $pk) {
-    return "view product : id= $id and name= $name and pk= $pk";
-})->name('products');
-
-Route::group(['fix' => 'user'], function () {
-   Route::get('/', function ()  {
-       return  "<a href='". route('user-ali', 5) ."'>move to user ali</a>" ;
-   })->name('user-all');
-   Route::get('/{id}', function ($id){
-       return "user ali"." id= $id";
-   })->name('user-ali');
-   Route::get('/ali/test/', function (){
-       return 'user ali test';
-   })->name('user-ali-test');
-});
-
-Route::fallback(function () {
-    return '404 Not Found';
-});
-
-
+Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/period/5', [PeriodController::class, 'period'])->name('period');
+Route::get('/login', [LoginController::class, 'index'])->name('login-get');
+Route::post('/login', [LoginController::class, 'login'])->name('login-post');
+Route::get('/register', [RegisterController::class, 'index'])->name('register-get');
+Route::post('/register', [RegisterController::class, 'register'])->name('register-post');
