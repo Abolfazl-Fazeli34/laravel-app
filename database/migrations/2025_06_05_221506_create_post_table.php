@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->id();
+            $table->string(column: 'title', length: 255);
+            $table->text(column: 'description');
+            $table->boolean(column: 'status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        $post = Post::create([
-            'title'=>'django',
-            'description'=>'django is good',
-        ]);
-        dd($post);
+        //
     }
 }
