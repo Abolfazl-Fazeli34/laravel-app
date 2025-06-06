@@ -13,3 +13,4 @@ Route::post('/login', [LoginController::class, 'login'])->name('login-post');
 Route::get('/register', [RegisterController::class, 'index'])->name('register-get');
 Route::post('/register', [RegisterController::class, 'register'])->name('register-post');
 Route::get('/test', [PostController::class, 'index'])->name('test-model-post');
+

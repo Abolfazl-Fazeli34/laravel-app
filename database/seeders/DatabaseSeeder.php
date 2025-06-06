@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         //]);
 //        $this->call(PostSeeder::class);
 
-    Post::factory(10)->count(10)->create();
+    Post::factory()->count(20)->create();
+    User::factory()->count(20)->create();
     }
 }
